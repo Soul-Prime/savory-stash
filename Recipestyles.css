@@ -1,0 +1,100 @@
+header {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+.search-bar {
+    text-align: center; /* Center-align the text within the search bar */
+}
+
+nav ul {
+    list-style-type: none; /* Remove the default list-style (usually dots) */
+    padding: 0; /* Remove any default padding */
+    margin: 0; /* Remove any default margin */
+}
+nav ul li {
+    display: inline; /* Display list items horizontally */
+}
+
+nav ul li a {
+    text-decoration: none; /* Remove underline from anchor links */
+    padding: 10px; /* Add padding to create space between links */
+}
+
+.search-bar form {
+    display: inline-block; /* Make the form display inline-block to center it */
+}
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+}
+
+.recipe-card {
+    width: 30%; 
+    margin-bottom: 20px; 
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-card h3 {
+    margin-top: 0;
+}
+
+.recipe-card p {
+    margin-bottom: 10px;
+}
+
+.recipe-card a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.recipe-card a:hover {
+    background-color: #0056b3;
+}
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+}
+
+.recipe-card {
+    width: 30%; 
+    margin-bottom: 20px; 
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-card h3 {
+    margin-top: 0;
+}
+
+.recipe-card p {
+    margin-bottom: 10px;
+}
+
+.recipe-card a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.recipe-card a:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,6 @@
+CREATE DATABASE Recipes;
+USE Recipes;
+CREATE USER 'webapp'@'localhost' IDENTIFIED BY 'Galaxy';
+GRANT ALL PRIVILEGES ON Recipes.* TO 'webapp'@'localhost';
+
+CREATE TABLE 
