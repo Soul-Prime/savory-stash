@@ -26,6 +26,10 @@ nav ul li a {
 .search-bar form {
     display: inline-block; /* Make the form display inline-block to center it */
 }
+
+body {
+    background: linear-gradient(135deg, #ffcccc, #cc99ff, #99ccff, #99ff99);
+}
 .grid-container {
     display: flex;
     flex-wrap: wrap;
