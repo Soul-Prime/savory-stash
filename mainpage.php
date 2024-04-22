@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Recipe Collection</title>
+    <title>Savery Stash</title>
     <link rel="stylesheet" href="Recipestyles.css">
 </head>
 <body>
@@ -31,7 +31,28 @@
             <h2>Featured Recipe</h2>
             <?php
             // Fetch data for featured recipe from the database (assuming you have a database connection)
-            $featuredRecipe = fetchFeaturedRecipe(); // You need to implement this function
+            function fetchFeaturedRecipe() {
+                try{
+                    $pdo = new PDO('mysql:host=localhost;dbname=Recipes', 'webapp', 'Apples');
+                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                
+                    $sql = "SELECT * FROM Recipes WHERE featured = 1 LIMIT 1";
+               $stmt = $pdo->query($sql);
+               if ($stmt) {
+                    
+                    return $stmt->fetch(PDO::FETCH_ASSOC);
+                }
+
+                return false;
+               
+                } catch (PDOException $e) {
+                    die("Could not connect to the database 'Recipes' : " . $e->getMessage());
+                }
+
+            }
+            
+            // Call the function to get the featured recipe
+            $featuredRecipe = fetchFeaturedRecipe();
             ?>
             <div class="recipe-card">
                 <h3><?php echo $featuredRecipe['title']; ?></h3>
@@ -43,8 +64,27 @@
             <h2>Recent Recipes</h2>
             <div class="grid-container">
                 <?php
-                // Fetch data for recent recipes from the database (assuming you have a database connection)
-                $recentRecipes = fetchRecentRecipes(); // You need to implement this function
+                
+                if (!function_exists('fetchFeaturedRecipe')) {
+                    function fetchFeaturedRecipe() {
+                       
+                        $pdo = new PDO('mysql:host=localhost;dbname=Recipes', 'webapp', 'Apples');
+                      
+                        $sql = "SELECT * FROM Recipes WHERE featured = 1 LIMIT 1";
+                    
+                        $stmt = $pdo->query($sql);
+                       
+                        if ($stmt) {
+                          
+                            return $stmt->fetch(PDO::FETCH_ASSOC);
+                        }
+                   
+                        return false;
+                    }
+                }
+                
+                // Call the function to get the featured recipe
+                $featuredRecipe = fetchFeaturedRecipe();
                 foreach ($recentRecipes as $recipe) {
                     ?>
                     <div class="recipe-card">

@@ -1,6 +1,6 @@
 <?php
 require_once 'login.php';
-require_once 'Recipecollection';
+require_once 'Recipes';
 
 function sanitize($str)
 {

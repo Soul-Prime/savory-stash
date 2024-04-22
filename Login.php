@@ -1,19 +1,17 @@
 <?php
-$data = 'Recipecollection';
+$data = 'Recipes';
 $user = 'webapp';
-$pass = 'Galaxy';
+$pass = 'Apples';
 
-try{
-    $pdo = new PDO("mysql:host=localhost;Recipecollection=$data", $user, $pass);
-
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+try {
+    $pdo = new PDO("mysql:host=localhost;dbname=$data", $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-
     die("Error: " . $e->getMessage());
 }
+
 require_once 'authenticate.php';
-require_once 'Recipecollection';
+require_once 'Recipes';
 ?>
 <!DOCTYPE html>
 <html lang="en">
