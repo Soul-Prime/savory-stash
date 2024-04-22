@@ -1,3 +1,12 @@
+<?php
+$primaryColor = '#98FB98'; 
+$secondaryColor = '#00FF7F'; 
+$tertiaryColor = '#2E8B57';
+$borderTopColor = '#FF5733'; // Red
+        $borderRightColor = '#F0E68C'; // Khaki
+        $borderBottomColor = '#4682B4'; // Steel Blue
+        $borderLeftColor = '#7FFF00'; // Chartreuse 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +17,7 @@
 </head>
 <body>
     <header>
-
+    
         <nav>
             <ul>
                 <li><a href="mainpage.php">Home</a></li>
@@ -20,9 +29,19 @@
             </ul>
         </nav>
         <style>
+            body {
+            background: linear-gradient(135deg, <?php echo $primaryColor; ?>, <?php echo $secondaryColor; ?>, <?php echo $tertiaryColor; ?>);
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
 /* CSS styles for centering and styling the navigation bar */
 nav {
     text-align: center; /* Center-align the entire navigation */
+    padding: 10px; /* Add padding for better visibility */
+            border-top: 2px solid <?php echo $borderTopColor; ?>;
+            border-right: 2px solid <?php echo $borderRightColor; ?>;
+            border-bottom: 2px solid <?php echo $borderBottomColor; ?>;
+            border-left: 2px solid <?php echo $borderLeftColor; ?>;
 }
 
 nav ul {
@@ -47,15 +66,3 @@ nav ul li a:hover {
 }
 </style>
 </html>
-<?php
-
-session_start();
-
-
-$_SESSION = array();
-session_destroy();
-
-
-header("Location: Login.php");
-exit();
-?>

@@ -1,9 +1,9 @@
 CREATE DATABASE Recipes;
 USE Recipes;
 
-CREATE USER 'webapp'@'localhost' IDENTIFIED BY 'Apples';
+
 GRANT ALL PRIVILEGES ON Recipes.* TO 'webapp'@'localhost';
-ALTER USER 'webapp'@'localhost' IDENTIFIED BY 'Apples';
+
 
 CREATE TABLE Recipes (
     Recipe_id INT AUTO_INCREMENT PRIMARY KEY,
