@@ -1,8 +1,5 @@
 <?php
-$primaryColor = '#98FB98'; //Mint
-$secondaryColor = '#00FF7F'; //Gold
-$tertiaryColor = '#2E8B57'; //Light Sea Green
-$borderTopColor = '#FF5733'; // Red
+
         $borderRightColor = '#F0E68C'; // Khaki
         $borderBottomColor = '#4682B4'; // Steel Blue
         $borderLeftColor = '#7FFF00'; // Chartreuse
@@ -33,8 +30,20 @@ echo "</div>";
             </ul>
         </nav>
         <style>
+            .food.image{
+                border-left: 2px solid #333;
+                border-right: 2px solid #333;
+            }
+            .recipe-card{
+             
+                padding: 20px;
+                border: 3px solid #fdc89a;
+                border-radius: 5px;
+                margin: 5px;
+                background-color: #29c5f6;
+            }
  body {
-            background: linear-gradient(280deg, <?php echo $primaryColor; ?>, <?php echo $secondaryColor; ?>, <?php echo $tertiaryColor; ?>);
+            background: linear-gradient(to right, #aed9e0, #ffffff );
             color: #333;
             font-family: Arial, sans-serif;
         }
@@ -73,10 +82,14 @@ nav ul li a:hover {
     </header>
     <?php
 echo "<div style='text-align: center;'>";
-echo "<br><p1>Welcome to The Recipe Collection aka The Savery Stash! I welcome all food lovers and chefs to share their favorite foods on my webpage abd look for more new recipes. Have fun!";
+echo "<br><h2>Welcome to The Recipe Collection aka The Savery Stash! I welcome all food lovers and chefs to share their favorite foods on my webpage abd look for more new recipes. Have fun!";
 echo "</div>";
 ?>
-         
+     <section class="food-image">
+        <img src="assets/food_pics/burger.jpg" alt="Burger">
+        <img src="assets/food_pics/fruitfood.jpg"alt="fruit">
+</section>
+
         <section class="recipe-card">
         <?php
 echo "<div style='text-align: center;'>";

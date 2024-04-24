@@ -27,7 +27,7 @@ $borderTopColor = '#FF5733'; // Red
         </nav>
         <style>
             body {
-            background: linear-gradient(135deg, <?php echo $primaryColor; ?>, <?php echo $secondaryColor; ?>, <?php echo $tertiaryColor; ?>);
+            background: linear-gradient(to right, #aed9e0, #ffffff );
             color: #333;
             font-family: Arial, sans-serif;
         }
@@ -66,6 +66,7 @@ form {
             margin-top: 50px; /* Add some top margin for spacing */
         }
 </style>  
+
 </html>           
 <?php
 // Database credentials
@@ -130,8 +131,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 <?php
+
 echo "<div style='text-align: center;'>";
 echo "<h2>Submit a New Recipe";
+echo"<h2> Like add some Crazy Recipes!!";
 echo "</div>";
 ?>
   
