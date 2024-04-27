@@ -6,6 +6,18 @@ $borderTopColor = '#FF5733'; // Red
         $borderRightColor = '#F0E68C'; // Khaki
         $borderBottomColor = '#4682B4'; // Steel Blue
         $borderLeftColor = '#7FFF00'; // Chartreuse 
+
+$data = 'recipes';
+$user = 'webapp';
+$pass = 'Apples';
+
+try {
+    $pdo = new PDO("mysql:host=localhost;dbname=$data", $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Error: " . $e->getMessage());
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +25,7 @@ $borderTopColor = '#FF5733'; // Red
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Savery Stash</title>
-    <link rel="stylesheet" href="Recipestyles.css">
+  
 </head>
 <body>
     <header>
@@ -25,11 +37,42 @@ $borderTopColor = '#FF5733'; // Red
                 <li><a href="Logout.php">Logout</a></li>
                 <li><a href="Details.php">Details</a><li>
                 <li><a href="FoodForums.php">Forms</a><li>
+                <li><a href="Summary.php">Summary</a><li>
               
             </ul>
         </nav>
         <style>
+
             body {
+                body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto; /* Center the container */
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
             background: linear-gradient(to right, #aed9e0, #ffffff );
             color: #333;
             font-family: Arial, sans-serif;
@@ -65,4 +108,26 @@ nav ul li a:hover {
     color: #007bff; /* Change link color on hover */
 }
 </style>
+</header>
+            <div class="container">
+       <center> <h2>User Details</h2>
+        <table>
+            <tr>
+                <th>Username</th>
+                <th>Role</th>
+            </tr>
+            <?php
+// Fetch data from the users table
+$stmt = $pdo->query("SELECT `Username`, role FROM Users");
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    echo "<tr>";
+    echo "<td>" . htmlspecialchars($row['Username']) . "</td>";
+    echo "<td>" . htmlspecialchars($row['role']) . "</td>";
+    echo "</tr>";
+}
+?>
+            </tbody>
+        </table>
+    </div>
+</body>
 </html>

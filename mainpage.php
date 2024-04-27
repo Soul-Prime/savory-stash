@@ -1,5 +1,5 @@
 <?php
-
+    $borderTopColor = '#FF5733'; // Red
         $borderRightColor = '#F0E68C'; // Khaki
         $borderBottomColor = '#4682B4'; // Steel Blue
         $borderLeftColor = '#7FFF00'; // Chartreuse
@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Savery Stash</title>
-    <link rel="stylesheet" href="Recipestyles.css">
+    
 </head>
 <body>
     <header>
@@ -26,10 +26,16 @@ echo "</div>";
                 <li><a href="Logout.php">Logout</a></li>
                 <li><a href="Details.php">Details</a><li>
                 <li><a href="FoodForums.php">Forms</a><li>
+                <li><a href="Summary.php">Summary</a><li>
               
             </ul>
         </nav>
-        <style>
+        <style> 
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
             .food.image{
                 border-left: 2px solid #333;
                 border-right: 2px solid #333;
@@ -82,14 +88,10 @@ nav ul li a:hover {
     </header>
     <?php
 echo "<div style='text-align: center;'>";
-echo "<br><h2>Welcome to The Recipe Collection aka The Savery Stash! I welcome all food lovers and chefs to share their favorite foods on my webpage abd look for more new recipes. Have fun!";
+echo "<br><h2>Welcome to The Recipe Collection aka The Savery Stash! I welcome all food lovers and chefs to share their favorite foods on my webpage as well as look for more new recipes. Have fun!";
 echo "</div>";
 ?>
-     <section class="food-image">
-        <img src="assets/food_pics/burger.jpg" alt="Burger">
-        <img src="assets/food_pics/fruitfood.jpg"alt="fruit">
-</section>
-
+     
         <section class="recipe-card">
         <?php
 echo "<div style='text-align: center;'>";
@@ -97,7 +99,7 @@ echo "<h2>Featured Recipe";
 echo "</div>";
 ?> 
             <?php
-            
+        
             function fetchRandomFeaturedRecipe() {
                 try {
                     $pdo = new PDO('mysql:host=localhost;dbname=recipes', 'webapp', 'Apples');
@@ -116,16 +118,18 @@ echo "</div>";
             
             
             $featuredRecipe = fetchRandomFeaturedRecipe();
-            
+
             if ($featuredRecipe !== false && isset($featuredRecipe['Title']) && isset($featuredRecipe['Description'])) {
-            ?>
-                <div class="recipe-card">
-                    <h3><?php echo $featuredRecipe['Title']; ?></h3>
-                    <p><?php echo $featuredRecipe['Description']; ?></p>
-                    <img src="<?php echo $featuredRecipe['Image path']; ?>" alt="<?php echo $featuredRecipe['Title']; ?>">
-                    
-                </div>
-            <?php
+                echo "<div class='recipe-card'>";
+                echo "<h3>" . htmlspecialchars($featuredRecipe['Title']) . "</h3>";
+                echo "<p>" . htmlspecialchars($featuredRecipe['Description']) . "</p>";
+                $imagePath = "assets/food pics/" . htmlspecialchars($featuredRecipe['Image path']);
+                if (file_exists($imagePath)) {
+                    echo "<img src='" . $imagePath . "' alt='" . htmlspecialchars($featuredRecipe['Title']) . "'>";
+                } else {
+                    echo "Image not found.";
+                }
+                echo "</div>";
             } else {
                 echo "<p>No featured recipe found</p>";
             }

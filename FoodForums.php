@@ -12,7 +12,7 @@ $borderTopColor = '#FF5733'; // Red
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Recipestyles.css">
+  
 </head>
 <body>
     <header>
@@ -23,6 +23,7 @@ $borderTopColor = '#FF5733'; // Red
                 <li><a href="Logout.php">Logout</a></li>
                 <li><a href="Details.php">Details</a><li>
                 <li><a href="FoodForums.php">Forms</a><li>
+                <li><a href="Summary.php">Summary</a><li>
             </ul>
         </nav>
         <style>
@@ -75,7 +76,6 @@ $dbname = 'recipes';
 $username = 'webapp'; 
 $password = 'Apples'; 
 
-
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -88,26 +88,28 @@ function sanitize($str)
     return htmlentities($str);
 }
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   
     $Title = isset($_POST['Title']) ? sanitize($_POST['Title']) : '';
     $Description = isset($_POST['Description']) ? sanitize($_POST['Description']) : '';
     $Ingredients = isset($_POST['Ingredients']) ? sanitize($_POST['Ingredients']) : '';
     $Instructions = isset($_POST['Instructions']) ? sanitize($_POST['Instructions']) : '';
 
-  
+    // Process image upload
     $Image_path = '';
     if ($_FILES['image']['size'] > 0) {
-        $target_dir = "uploads/";
+        $target_dir = "assets/food_pics/"; // Directory where images are stored
         $target_file = $target_dir . basename($_FILES["image"]["name"]);
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+            // Image uploaded successfully, store file path in database
             $Image_path = $target_file;
         } else {
             die("Error uploading file.");
         }
     }
 
+
+
+    // Insert recipe into database
     $stmt = $pdo->prepare("INSERT INTO Recipes (Title, Description, Ingredients, Instructions, `Image path`) VALUES (:Title, :Description, :Ingredients, :Instructions, :Image_path)");
     $stmt->execute(array(
         'Title' => $Title,
@@ -130,14 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Recipe Submission</title>
 </head>
 <body>
-<?php
-
-echo "<div style='text-align: center;'>";
-echo "<h2>Submit a New Recipe";
-echo"<h2> Like add some Crazy Recipes!!";
-echo "</div>";
-?>
-  
+    <center><h2>Submit a New Recipe</h2>
     <?php if (isset($successMessage)) : ?>
         <p style="color: green;"><?php echo $successMessage; ?></p>
     <?php endif; ?>
@@ -154,8 +149,8 @@ echo "</div>";
         <label for="Instructions">Instructions:</label><br>
         <textarea id="Instructions" name="Instructions" required></textarea><br><br>
 
-        <label for="Image">Image:</label><br>
-        <input type="file" id="Image" name="Image"><br><br>
+        <label for="image">Image:</label><br>
+        <input type="file" id="image" name="image"><br><br>
 
         <input type="submit" value="Submit Recipe">
     </form>
