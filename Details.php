@@ -7,12 +7,13 @@ $borderTopColor = '#FF5733'; // Red
         $borderBottomColor = '#4682B4'; // Steel Blue
         $borderLeftColor = '#7FFF00'; // Chartreuse 
 
-$data = 'recipes';
-$user = 'webapp';
-$pass = 'Apples';
+        $host = 'localhost'; 
+        $dbname = 'recipes'; 
+        $username = 'webapp'; 
+        $password = 'Apples'; 
 
 try {
-    $pdo = new PDO("mysql:host=localhost;dbname=$data", $user, $pass);
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("Error: " . $e->getMessage());
@@ -33,11 +34,13 @@ try {
         <nav>
             <ul>
                 <li><a href="mainpage.php">Home</a></li>
+                <li><a href="Signup.php">Signup</a><li>
                 <li><a href="Login.php">Login</a></li>
                 <li><a href="Logout.php">Logout</a></li>
                 <li><a href="Details.php">Details</a><li>
                 <li><a href="FoodForums.php">Forms</a><li>
                 <li><a href="Summary.php">Summary</a><li>
+            
               
             </ul>
         </nav>
@@ -110,12 +113,15 @@ nav ul li a:hover {
 </style>
 </header>
             <div class="container">
-       <center> <h2>User Details</h2>
+       <center> <h2>User Details</h2></center>
         <table>
+            <thead>
             <tr>
                 <th>Username</th>
                 <th>Role</th>
             </tr>
+</thead>
+<tbody>
             <?php
 // Fetch data from the users table
 $stmt = $pdo->query("SELECT `Username`, role FROM Users");

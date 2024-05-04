@@ -12,6 +12,7 @@
         <nav>
             <ul>
                 <li><a href="mainpage.php">Home</a></li>
+                <li><a href="Signup.php">Signup</a><li>
                 <li><a href="Login.php">Login</a></li>
                 <li><a href="Logout.php">Logout</a></li>
                 <li><a href="Details.php">Details</a><li>
@@ -56,6 +57,6 @@ $_SESSION = array();
 session_destroy();
 
 
-header("Location: Login.php");
+header("Location: mainpage.php");
 exit();
 ?>

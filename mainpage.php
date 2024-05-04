@@ -22,11 +22,13 @@ echo "</div>";
       <nav>
             <ul>
                 <li><a href="mainpage.php">Home</a></li>
+                <li><a href="Signup.php">Signup</a><li>
                 <li><a href="Login.php">Login</a></li>
                 <li><a href="Logout.php">Logout</a></li>
                 <li><a href="Details.php">Details</a><li>
                 <li><a href="FoodForums.php">Forms</a><li>
                 <li><a href="Summary.php">Summary</a><li>
+                
               
             </ul>
         </nav>

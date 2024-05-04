@@ -52,4 +52,5 @@ CREATE TABLE Users (
 INSERT INTO Users (Username, Email, Password, Full_name, Created_at, Updated_at, role)
 VALUES ('Soul_Eater', 'SolaceSimRo@yahoo.com', 'Galaxy', 'Solace-Simone', NOW(), NOW(), 'admin');
 
+
 SELECT * FROM Users;
