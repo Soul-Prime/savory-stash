@@ -34,10 +34,10 @@ $borderTopColor = '#FF5733'; // Red
             color: #333;
             font-family: Arial, sans-serif;
         }
-/* CSS styles for centering and styling the navigation bar */
+
 nav {
-    text-align: center; /* Center-align the entire navigation */
-    padding: 10px; /* Add padding for better visibility */
+    text-align: center; 
+    padding: 10px; 
             border-top: 2px solid <?php echo $borderTopColor; ?>;
             border-right: 2px solid <?php echo $borderRightColor; ?>;
             border-bottom: 2px solid <?php echo $borderBottomColor; ?>;
@@ -51,22 +51,22 @@ nav ul {
 }
 
 nav ul li {
-    display: inline; /* Inline display for horizontal list */
-    margin-right: 20px; /* Add spacing between list items */
+    display: inline; 
+    margin-right: 20px; 
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #333; /* Change link color */
-    font-weight: bold; /* Make link text bold */
+    color: #333; 
+    font-weight: bold; 
 }
 
 nav ul li a:hover {
-    color: #007bff; /* Change link color on hover */
+    color: #007bff; 
 }
 form {
             text-align: center;
-            margin-top: 50px; /* Add some top margin for spacing */
+            margin-top: 50px; 
         }
 </style>  
 
@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Process image upload
     $Image_path = '';
     if ($_FILES['image']['size'] > 0) {
-        $target_dir = "assets/food_pics/"; // Directory where images are stored
+        $target_dir = "assets/food_pics/"; // Directory 
         $target_file = $target_dir . basename($_FILES["image"]["name"]);
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
             // Image uploaded successfully, store file path in database
@@ -121,7 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'Image_path' => $Image_path
     ));
 
-    // Display success message
+    // success message
     $successMessage = "Recipe submitted successfully!";
 }
 ?>

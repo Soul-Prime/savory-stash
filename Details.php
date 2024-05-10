@@ -54,7 +54,7 @@ try {
 
         .container {
             max-width: 800px;
-            margin: 0 auto; /* Center the container */
+            margin: 0 auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
@@ -80,10 +80,10 @@ try {
             color: #333;
             font-family: Arial, sans-serif;
         }
-/* CSS styles for centering and styling the navigation bar */
+
 nav {
-    text-align: center; /* Center-align the entire navigation */
-    padding: 10px; /* Add padding for better visibility */
+    text-align: center;
+    padding: 10px; 
             border-top: 2px solid <?php echo $borderTopColor; ?>;
             border-right: 2px solid <?php echo $borderRightColor; ?>;
             border-bottom: 2px solid <?php echo $borderBottomColor; ?>;
@@ -97,18 +97,18 @@ nav ul {
 }
 
 nav ul li {
-    display: inline; /* Inline display for horizontal list */
-    margin-right: 20px; /* Add spacing between list items */
+    display: inline; 
+    margin-right: 20px; 
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #333; /* Change link color */
-    font-weight: bold; /* Make link text bold */
+    color: #333; 
+    font-weight: bold; 
 }
 
 nav ul li a:hover {
-    color: #007bff; /* Change link color on hover */
+    color: #007bff; 
 }
 </style>
 </header>
@@ -123,7 +123,7 @@ nav ul li a:hover {
 </thead>
 <tbody>
             <?php
-// Fetch data from the users table
+// get data from table
 $stmt = $pdo->query("SELECT `Username`, role FROM Users");
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     echo "<tr>";

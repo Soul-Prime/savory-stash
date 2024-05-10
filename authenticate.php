@@ -10,31 +10,30 @@ try {
     die("Error: " . $e->getMessage());
 }
 
-// Function for basic sanitization
+// sanitization
 function sanitize($str)
 {
     return htmlentities($str);
 }
 
-// Check if form is submitted
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Sanitize form inputs
+
     $email = isset($_POST['email']) ? sanitize($_POST['email']) : '';
     $password = isset($_POST['password']) ? $_POST['password'] : '';
 
-    // Query the database to fetch user with provided email
     $stmt = $pdo->prepare("SELECT * FROM Users WHERE Email = :email");
     $stmt->execute(['email' => $email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Check if user exists and password matches
+   // user and password acutally exist
     if ($user && password_verify($password, $user['Password'])) {
         // Start session and set user data
         session_start();
         $_SESSION['User_id'] = $user['User_id'];
         $_SESSION['Username'] = $user['Username'];
 
-        // Redirect to recipe form page
+        // Redirect to FoodForums page
         header("Location: FoodForums.php");
         exit;
     } else {

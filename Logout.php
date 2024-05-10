@@ -21,9 +21,9 @@
             </ul>
         </nav>
         <style>
-/* CSS styles for centering and styling the navigation bar */
+
 nav {
-    text-align: center; /* Center-align the entire navigation */
+    text-align: center; 
 }
 
 nav ul {
@@ -33,18 +33,18 @@ nav ul {
 }
 
 nav ul li {
-    display: inline; /* Inline display for horizontal list */
-    margin-right: 20px; /* Add spacing between list items */
+    display: inline; 
+    margin-right: 20px;
 }
 
 nav ul li a {
     text-decoration: none;
-    color: #333; /* Change link color */
-    font-weight: bold; /* Make link text bold */
+    color: #333;
+    font-weight: bold; 
 }
 
 nav ul li a:hover {
-    color: #007bff; /* Change link color on hover */
+    color: #007bff; 
 }
 </style>
 </html>

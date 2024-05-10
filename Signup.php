@@ -6,7 +6,7 @@ $borderTopColor = '#FF5733'; // Red
         $borderRightColor = '#F0E68C'; // Khaki
         $borderBottomColor = '#4682B4'; // Steel Blue
         $borderLeftColor = '#7FFF00'; // Chartreuse 
-// Database connection parameters
+// Database connection login
 $host = 'localhost'; 
 $dbname = 'recipes'; 
 $username = 'webapp'; 
@@ -19,16 +19,16 @@ try {
     die("Error: " . $e->getMessage());
 }
 
-// Process signup form submission
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
+   
    
     $username = $_POST['username'];
     $email = $_POST['email'];
-   $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash the password for security 
+   $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // hash password
    $Full_name =$_POST [ 'Full_name']; 
     $role = $_POST['role'];
-    // Insert user data into the database
+    // Add user data into database
     $stmt = $pdo->prepare("INSERT INTO Users (Username, Email, Password, Full_Name, role) VALUES (?, ?, ?, ?, ?)");
     $stmt->execute([$username, $email, $password, $Full_name, $role]);
 
@@ -70,14 +70,14 @@ background-color: #f0f0f0;
 
 .container {
     text-align: center;
-    max-width: 400px; /* Adjust the width as needed */
-    margin: 0 auto; /* Center the container horizontally */
+    max-width: 400px; 
+    margin: 0 auto; 
     padding: 20px;  
 }
 form
 {
-    display: inline-block; /* Display the form as an inline block */
-    text-align: left; /* Left-align the form fields */
+    display: inline-block;
+    text-align: left; 
     
 }
 
@@ -100,10 +100,10 @@ background: linear-gradient(to right, #aed9e0, #ffffff );
 color: #333;
 font-family: Arial, sans-serif;
 }
-/* CSS styles for centering and styling the navigation bar */
+
 nav {
-text-align: center; /* Center-align the entire navigation */
-padding: 10px; /* Add padding for better visibility */
+text-align: center; 
+padding: 10px; 
 border-top: 2px solid <?php echo $borderTopColor; ?>;
 border-right: 2px solid <?php echo $borderRightColor; ?>;
 border-bottom: 2px solid <?php echo $borderBottomColor; ?>;
@@ -117,18 +117,18 @@ margin: 0;
 }
 
 nav ul li {
-display: inline; /* Inline display for horizontal list */
-margin-right: 20px; /* Add spacing between list items */
+display: inline; 
+margin-right: 20px; 
 }
 
 nav ul li a {
 text-decoration: none;
-color: #333; /* Change link color */
-font-weight: bold; /* Make link text bold */
+color: #333; 
+font-weight: bold; 
 }
 
 nav ul li a:hover {
-color: #007bff; /* Change link color on hover */
+color: #007bff; 
 }
 </style>
 </head>

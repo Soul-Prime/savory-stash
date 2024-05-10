@@ -45,7 +45,7 @@ $borderLeftColor = '#7FFF00'; // Chartreuse
         }
 nav {
     text-align: center; 
-    padding: 10px; /* Add padding for better visibility */
+    padding: 10px; 
             border-top: 2px solid <?php echo $borderTopColor; ?>;
             border-right: 2px solid <?php echo $borderRightColor; ?>;
             border-bottom: 2px solid <?php echo $borderBottomColor; ?>;

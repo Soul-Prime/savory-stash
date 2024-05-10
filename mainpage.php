@@ -57,7 +57,7 @@ echo "</div>";
         }
 nav {
     text-align: center; 
-    padding: 10px; /* Add padding for better visibility */
+    padding: 10px; 
             border-top: 2px solid <?php echo $borderTopColor; ?>;
             border-right: 2px solid <?php echo $borderRightColor; ?>;
             border-bottom: 2px solid <?php echo $borderBottomColor; ?>;
@@ -118,7 +118,7 @@ echo "</div>";
                 }
             }
             
-            
+            // Showcase the featured recipe from the database
             $featuredRecipe = fetchRandomFeaturedRecipe();
 
             if ($featuredRecipe !== false && isset($featuredRecipe['Title']) && isset($featuredRecipe['Description'])) {
